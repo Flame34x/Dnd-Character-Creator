@@ -131,7 +131,7 @@ public class SaveLoad {
     button.addActionListener(e -> frame6.setVisible(false));
   }
 
-  public static void Load(RPG rpg, JFrame frame) {
+  public static void Load(RPG rpg, JFrame frame, List < CharClass > classes, List < CharRace > races) {
     // Open file chooser to select the file to load from
     JFileChooser fileChooser = new JFileChooser();
     fileChooser.setDialogTitle("Select Character File");
@@ -168,6 +168,7 @@ public class SaveLoad {
       for (CharRace r: races) {
         if (r.raceID.equals(String.valueOf(rIDToFind))) {
           pc.SetRace(r);
+          System.out.println(r.raceName);
           break;
         } else {
           throw new IllegalArgumentException();
@@ -208,9 +209,9 @@ public class SaveLoad {
     // Display character data in labels
     JLabel nameLabel = new JLabel("Name: " + pc.GetName());
     frame7.add(nameLabel);
-    JLabel raceLabel = new JLabel("Race: " + pc.GetRace());
+    JLabel raceLabel = new JLabel("Race: " + pc.GetRace().raceName);
     frame7.add(raceLabel);
-    JLabel classLabel = new JLabel("Class: " + pc.getClass());
+    JLabel classLabel = new JLabel("Class: " + pc.GetClass().className);
     frame7.add(classLabel);
     JLabel hpLabel = new JLabel("HP: " + pc.GetHitPoints());
     frame7.add(hpLabel);

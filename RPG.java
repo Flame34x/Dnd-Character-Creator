@@ -27,24 +27,33 @@ public class RPG {
     rpg.InitializeClasses();
     rpg.InitializeRaces();
 
-    JFrame frame = new JFrame("D&D Character Generator");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(300, 300);
-    frame.setLayout(new FlowLayout());
-    JButton button = new JButton("Generate Character");
-    frame.add(button);
-    frame.setVisible(true);
+    JFrame mainMenu = new JFrame("D&D Character Generator");
+    mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    mainMenu.setSize(300, 300);
+    mainMenu.setLayout(new FlowLayout());
+    JButton buttonGen = new JButton("Generate Character");
+    mainMenu.add(buttonGen);
+    mainMenu.setVisible(true);
+    JButton buttonCC = new JButton("Create a Class");
+    mainMenu.add(buttonCC);
+    JButton buttonCR = new JButton("Create a Race");
+    mainMenu.add(buttonCR);
     JButton buttonLoad = new JButton("Load Character");
-    frame.add(buttonLoad);
-    JButton button2 = new JButton("Exit");
-    frame.add(button2);
-    button.addActionListener(e -> CharacterGeneration.InitializeGeneration(pc, races, classes, rpg, frame));
-    buttonLoad.addActionListener(e -> SaveLoad.Load(rpg, frame));
-    button2.addActionListener(e -> System.exit(0));
+    mainMenu.add(buttonLoad);
+    JButton buttonExit = new JButton("Exit");
+    mainMenu.add(buttonExit);
+    buttonGen.addActionListener(e -> CharacterGeneration.InitializeGeneration(pc, races, classes, rpg, mainMenu));
+    buttonCC.addActionListener(e -> {
+      ClassCreator.CreateClass(rpg, classes);
+      mainMenu.dispose();
+    });
+    buttonLoad.addActionListener(e -> SaveLoad.Load(rpg, mainMenu, classes, races));
+    buttonExit.addActionListener(e -> System.exit(0));
   }
 
   public void InitializeRaces() {
     // open Classes folder, read all files, create CharClass objects
+    races.clear();
     for (File file: new File("Races").listFiles()) {
       CharRace r = new CharRace();
       try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -61,6 +70,7 @@ public class RPG {
   }
 
   public void InitializeClasses() {
+    classes.clear();
     // open Classes folder, read all files, create CharClass objects
     for (File file: new File("Classes").listFiles()) {
       CharClass c = new CharClass();
