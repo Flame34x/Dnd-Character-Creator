@@ -1,4 +1,4 @@
-package CharacterCreator;
+package CharacterGen;
 public class CharClass {
 
     public String className; // The name of the class

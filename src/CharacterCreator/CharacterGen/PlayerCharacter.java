@@ -1,4 +1,4 @@
-package CharacterCreator;
+package CharacterGen;
 
 public class PlayerCharacter {
 
@@ -16,6 +16,9 @@ public class PlayerCharacter {
     public int hitPoints; // The hit points of the character
     public int armorClass; // The armor class of the character
     public String charID; // A unique identifier for the character
+
+    public PlayerCharacter() {
+    }
   
     public void SetName(String name) {
       charName = name;

@@ -1,4 +1,4 @@
-package CharacterCreator;
+package CharacterGen;
 import java.awt.FlowLayout;
 import java.io.BufferedReader;
 import java.io.File;
@@ -55,7 +55,7 @@ public class RPG {
   public void InitializeRaces() {
     // open Classes folder, read all files, create CharClass objects
     races.clear();
-    for (File file: new File("src/CharacterCreator/Races").listFiles()) {
+    for (File file: new File("Data/Races").listFiles()) {
       CharRace r = new CharRace();
       try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
         r.raceName = reader.readLine();
@@ -73,7 +73,7 @@ public class RPG {
   public void InitializeClasses() {
     classes.clear();
     // open Classes folder, read all files, create CharClass objects
-    for (File file: new File("src/CharacterCreator/Classes").listFiles()) {
+    for (File file: new File("Data/Classes").listFiles()) {
       CharClass c = new CharClass();
       try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
         c.className = reader.readLine();

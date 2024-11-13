@@ -1,4 +1,4 @@
-package CharacterCreator;
+package CharacterGen;
 public class CharRace {
     public String raceName; // The name
     public String raceDescription; // A brief description
