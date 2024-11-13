@@ -1,6 +1,9 @@
-public class CharClass {
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 
-    public String className; // The name of the class
-    public String classDescription; // A brief description of the class
-    public String classID; // A unique identifier for the class
+
+class CharClass {
+
 }

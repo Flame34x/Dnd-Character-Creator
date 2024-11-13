@@ -1,5 +1,9 @@
-public class CharRace {
-    public String raceName; // The name
-    public String raceDescription; // A brief description
-    public String raceID; // A unique identifier
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+
+class CharRace {
+
 }
